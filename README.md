@@ -22,7 +22,7 @@ Make sure you have the following software installed:
 
 
 ```bash
- https://todo-list-pramudnadula.netlify.app/#/login
+ https://todo-list-pramudnadula.netlify.app/
 ```
 
 ## or
