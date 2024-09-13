@@ -46,6 +46,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                             setUser(user);
                             setIsAuthenticated(true);
                             localStorage.setItem('user', JSON.stringify(user));
+                            localStorage.setItem('currentUserEmail', user.email);
                             toast.success('Login successful');
                             resolve();
                         } else {
@@ -97,6 +98,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const logout = () => {
         localStorage.removeItem('user');
+        localStorage.removeItem('currentUserEmail');
         setUser(null);
         setIsAuthenticated(false);
         toast.info('Logged out');
