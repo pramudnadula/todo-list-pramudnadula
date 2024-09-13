@@ -103,8 +103,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     };
 
     React.useEffect(() => {
-        if (!isAuthenticated) {
-            localStorage.removeItem('user');
+        if (localStorage.getItem('user')) {
+            setIsAuthenticated(true);
+        }
+    }, []);
+
+    React.useEffect(() => {
+        if (!isAuthenticated && localStorage.getItem('user')) {
+            // localStorage.removeItem('user');
         }
     }, [isAuthenticated]);
 

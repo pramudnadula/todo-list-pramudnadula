@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, IconButton, TextField } from '@mui/material';
+import { Checkbox, IconButton, TextField } from '@mui/material';
 import { Todo } from '../../types';
 import { useTodo } from '../../context/TodoContext';
 import EditNoteIcon from '@mui/icons-material/EditNote';

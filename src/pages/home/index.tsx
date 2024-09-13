@@ -1,17 +1,10 @@
 import React from 'react';
-
 import { Button } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import TodoList from '../../components/todo/TodoList';
 
 const Home: React.FC = () => {
-    const { isAuthenticated, logout } = useAuth();
-    const navigate = useNavigate();
-
-    if (!isAuthenticated) {
-        navigate('/login'); // Redirect to login if not authenticated
-    }
+    const { logout } = useAuth();
 
     return (
         <div className="p-6">
