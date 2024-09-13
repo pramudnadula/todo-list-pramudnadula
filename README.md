@@ -21,7 +21,9 @@ Make sure you have the following software installed:
 1. **You can go to the website and check the demo:**
 
 
-  [link]:https://todo-list-pramudnadula.netlify.app/#/login
+```bash
+ https://todo-list-pramudnadula.netlify.app/#/login
+```
 
 ## or
 
