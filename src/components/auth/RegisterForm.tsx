@@ -14,7 +14,13 @@ const RegisterForm: React.FC = () => {
         validationSchema: Yup.object({
             name: Yup.string().required('Required'),
             email: Yup.string().email('Invalid email address').required('Required'),
-            password: Yup.string().min(6, 'Must be at least 6 characters').required('Required'),
+            password: Yup.string()
+                .min(8, 'Must be at least 8 characters')
+                .matches(/[A-Z]/, 'Must contain at least one uppercase letter')
+                .matches(/[a-z]/, 'Must contain at least one lowercase letter')
+                .matches(/\d/, 'Must contain at least one number')
+                .matches(/[@$!%*?&]/, 'Must contain at least one special character')
+                .required('Required'),
         }),
         onSubmit: async (values) => {
             try {

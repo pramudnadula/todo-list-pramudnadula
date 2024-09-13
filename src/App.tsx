@@ -10,7 +10,7 @@ const ProtectedRoute: React.FC<{ element: React.ReactElement }> = ({ element }) 
   const { isAuthenticated } = useAuth(); // isAuthenticated is a boolean value
   const user = localStorage.getItem('user'); // user is a string value
   // If the user is authenticated or the user is saved in the local storage, return the element
-  return (user || isAuthenticated) ? element : <Navigate to="/register" />;
+  return (user || isAuthenticated) ? element : <Navigate to="/login" />;
 };
 
 const App: React.FC = () => {
