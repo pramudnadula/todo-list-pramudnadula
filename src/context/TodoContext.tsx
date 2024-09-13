@@ -7,7 +7,7 @@ interface TodoContextType {
     addTodo: (todo: Todo) => void;
     deleteTodo: (id: number) => void;
     toggleTodoCompletion: (id: number) => void;
-    editTodo: (id: number) => void; // Placeholder for the edit function
+    editTodo: (id: number, updatedTodo: Partial<Todo>) => void; // Updated to handle partial updates
 }
 
 const TodoContext = createContext<TodoContextType | undefined>(undefined);
@@ -31,8 +31,12 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
         );
     };
 
-    const editTodo = (id: number) => {
-        // Implement edit logic if needed
+    const editTodo = (id: number, updatedTodo: Partial<Todo>) => {
+        setTodos(
+            todos.map((todo) =>
+                todo.id === id ? { ...todo, ...updatedTodo } : todo
+            )
+        );
     };
 
     return (

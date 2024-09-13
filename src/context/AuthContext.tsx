@@ -107,6 +107,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         toast.info('Logged out');
     };
 
+    React.useEffect(() => {
+        if (!isAuthenticated) {
+            localStorage.removeItem('user');
+        }
+    }, [isAuthenticated]);
+
     return (
         <AuthContext.Provider value={{ isAuthenticated, user, login, register, logout }}>
             {children}
