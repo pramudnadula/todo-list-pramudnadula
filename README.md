@@ -16,6 +16,15 @@ Make sure you have the following software installed:
 - **Node.js** (v16 or later) I used v18.19.1
 - **npm** (Node Package Manager) or **yarn**
 
+## Demo
+
+1. **You can go to the website and check the demo:**
+
+
+  [link]:https://todo-list-pramudnadula.netlify.app/#/login
+
+## or
+
 ## Installation
 
 1. **Clone the Repository:**
