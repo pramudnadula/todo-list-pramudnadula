@@ -1,0 +1,40 @@
+// src/components/Todo/TodoItem.tsx
+import React from 'react';
+import { Button, Checkbox, IconButton } from '@mui/material';
+import { Todo } from '../../types';
+import { useTodo } from '../../context/TodoContext';
+
+
+interface TodoItemProps {
+    todo: Todo;
+}
+
+const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
+    const { toggleTodoCompletion, deleteTodo, editTodo } = useTodo();
+
+    return (
+        <div className="flex items-center justify-between p-4 bg-white rounded shadow">
+            <div className="flex items-center space-x-2">
+                <Checkbox
+                    checked={todo.completed}
+                    onChange={() => toggleTodoCompletion(todo.id)}
+                    color="primary"
+                />
+                <div className={`${todo.completed ? 'line-through text-gray-500' : ''}`}>
+                    <h2 className="text-lg font-semibold">{todo.title}</h2>
+                    <p>{todo.description}</p>
+                </div>
+            </div>
+            <div className="flex space-x-2">
+                <IconButton color="primary" onClick={() => editTodo(todo.id)}>
+                    {/* <EditIcon /> */}
+                </IconButton>
+                <IconButton color="secondary" onClick={() => deleteTodo(todo.id)}>
+                    {/* <DeleteIcon /> */}
+                </IconButton>
+            </div>
+        </div>
+    );
+};
+
+export default TodoItem;
