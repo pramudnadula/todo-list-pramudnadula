@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { TodoProvider } from './context/TodoContext';
 import { Home, Login, NotFound, Register } from './pages';
@@ -18,16 +18,16 @@ const App: React.FC = () => {
     <AuthProvider>
       <TodoProvider>
         <ToastContainer />
-        <Router>
+        <HashRouter>
           <Routes>
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<ProtectedRoute element={<Home />} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </Router>
-      </TodoProvider>
-    </AuthProvider>
+        </HashRouter>
+      </TodoProvider >
+    </AuthProvider >
   );
 };
 
