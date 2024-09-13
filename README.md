@@ -20,6 +20,51 @@ Make sure you have the following software installed:
 
 1. **Clone the Repository:**
 
-   ```bash
+```bash
    git clone https://github.com/pramudnadula/todo-list-pramudnadula.git
    cd todo-list-pramudnadula
+```
+
+2. **Install Dependencies:
+
+Using npm:
+```bash
+npm install
+```
+Or using yarn:
+```bash
+yarn install
+```
+
+3. **Running the Application Locally
+
+Start the Development Server:
+
+Using npm:
+```bash
+npm start
+```
+
+Or using yarn:
+```bash
+yarn start
+```
+
+This will start the development server and open the application in your default web browser at http://localhost:3000.
+
+4. **Build for Production:
+
+To create a production build, run:
+
+Using npm:
+
+```bash
+npm run build
+```
+
+Or using yarn:
+```bash
+yarn build
+```
+This will generate a build directory with a production-ready version of the application.
+
