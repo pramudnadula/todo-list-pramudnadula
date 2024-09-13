@@ -20,6 +20,7 @@ const AddTodoForm: React.FC = () => {
                 title: values.title,
                 description: values.description,
                 completed: false,
+                status: 'incomplete',
             });
             resetForm();
         },

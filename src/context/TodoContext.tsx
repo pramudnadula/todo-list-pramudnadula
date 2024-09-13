@@ -57,7 +57,13 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
 
     const toggleTodoCompletion = (id: number) => {
         const updatedTodos = todos.map((todo) =>
-            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+            todo.id === id
+                ? {
+                    ...todo,
+                    completed: !todo.completed,
+                    status: todo.completed ? 'incomplete' as const : 'completed' as const,
+                }
+                : todo
         );
         setTodos(updatedTodos);
         updateUserTodos(updatedTodos);

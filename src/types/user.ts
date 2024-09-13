@@ -1,4 +1,4 @@
-import { Todo } from "./types";
+import { Todo } from "./todo";
 
 export interface User {
     name: string;

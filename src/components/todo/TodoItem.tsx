@@ -30,7 +30,9 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
                     onChange={() => toggleTodoCompletion(todo.id)}
                     color="primary"
                 />
-                <div className={`${todo.completed ? 'line-through text-gray-500' : ''}`}>
+                <div
+                // className={`${todo.completed ? 'line-through text-gray-500' : ''}`}
+                >
                     {isEditing ? (
                         <div className="space-y-2">
                             <TextField
@@ -47,17 +49,27 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
                             />
                         </div>
                     ) : (
-                        <div>
-                            <h2 className="text-lg font-semibold">{todo.title}</h2>
-                            <p>{todo.description}</p>
+                        <div className='capitalize'>
+                            <div
+                                className={`${todo.completed ? 'line-through text-gray-500' : ''}`}
+                            >
+                                <h2 className="text-lg font-semibold">{todo.title}</h2>
+                                <p>{todo.description}</p>
+                            </div>
+                            <span className={`text-sm font-semibold ${todo.status === 'completed' ? 'text-green-500' : 'text-red-500'}`}>
+                                {todo.status}
+                            </span>
                         </div>
                     )}
                 </div>
             </div>
             <div className="flex space-x-2">
-                <IconButton color="primary" onClick={handleEdit}>
-                    {isEditing ? <SaveIcon /> : <EditNoteIcon />}
-                </IconButton>
+                {todo.completed ?
+                    null :
+                    <IconButton color="primary" onClick={handleEdit}>
+                        {isEditing ? <SaveIcon /> : <EditNoteIcon />}
+                    </IconButton>
+                }
                 <IconButton color="secondary" onClick={() => deleteTodo(todo.id)}>
                     <DeleteIcon />
                 </IconButton>
