@@ -1,4 +1,3 @@
-// src/pages/Register.tsx
 import React from 'react';
 import RegisterForm from '../../components/auth/RegisterForm';
 import { Card, CardContent, Typography } from '@mui/material';

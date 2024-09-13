@@ -1,4 +1,3 @@
-// src/pages/Login.tsx
 import React from 'react';
 import LoginForm from '../../components/auth/LoginForm';
 import { Card, CardContent, Typography } from '@mui/material';

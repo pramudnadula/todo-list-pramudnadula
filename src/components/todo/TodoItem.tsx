@@ -1,4 +1,3 @@
-// src/components/Todo/TodoItem.tsx
 import React, { useState } from 'react';
 import { Button, Checkbox, IconButton, TextField } from '@mui/material';
 import { Todo } from '../../types';

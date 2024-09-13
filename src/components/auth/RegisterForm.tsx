@@ -1,4 +1,3 @@
-// src/components/Auth/RegisterForm.tsx
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';

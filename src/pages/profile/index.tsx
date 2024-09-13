@@ -1,4 +1,3 @@
-// src/pages/Profile.tsx
 import React from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { Card, CardContent, Button, Typography } from '@mui/material';

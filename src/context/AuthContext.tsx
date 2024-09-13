@@ -1,13 +1,8 @@
-// src/context/AuthContext.tsx
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import CryptoJS from 'crypto-js';
 import { toast } from 'react-toastify';
+import { User } from '../types';
 
-interface User {
-    name: string;
-    email: string;
-    passwordHash: string;
-}
 
 interface AuthContextType {
     isAuthenticated: boolean;
