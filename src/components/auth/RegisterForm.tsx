@@ -60,8 +60,13 @@ const RegisterForm: React.FC = () => {
                 error={formik.touched.password && Boolean(formik.errors.password)}
                 helperText={formik.touched.password && formik.errors.password}
             />
-            <Button color="primary" variant="contained" fullWidth type="submit">
-                Register
+            <Button
+                className='h-12 bg-gradient-to-r from-secondaryColor to-tertiaryColor text-white'
+                variant="contained"
+                fullWidth
+                type="submit"
+            >
+                Sign Up
             </Button>
         </form>
     );

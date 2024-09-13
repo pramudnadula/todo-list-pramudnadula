@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { TodoProvider } from './context/TodoContext';
-import { Home, Login, Register } from './pages';
+import { Home, Login, NotFound, Profile, Register } from './pages';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -23,6 +23,8 @@ const App: React.FC = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<ProtectedRoute element={<Home />} />} />
+            <Route path="/profile" element={<ProtectedRoute element={<Profile />} />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
       </TodoProvider>
