@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Button } from '@mui/material';
+import { IconButton } from '@mui/material';
 import { useAuth } from '../../context/AuthContext';
 import TodoList from '../../components/todo/TodoList';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Home: React.FC = () => {
     const { logout, user } = useAuth();
@@ -10,8 +11,8 @@ const Home: React.FC = () => {
     // when clik the profile image it will toggle the value of toggle
 
     return (
-        <div className="container mx-auto p-4">
-            <nav className="flex justify-between items-center mb-4">
+        <>
+            <nav className="py-4 px-4 sm:px-[3.75rem] flex justify-between items-center mb-4 shadow-md">
                 <div className="flex items-center space-x-4">
                     <img
                         src="https://pramudnadula.com/assets/img/about1.png"
@@ -19,15 +20,21 @@ const Home: React.FC = () => {
                         className="w-12 h-12 rounded-full"
                         onClick={() => setToggle(!toggle)}
                     />
-                    <h1 className="text-2xl font-bold">{user?.name}</h1>
+                    <h1 className="capitalize text-2xl font-bold">{user?.name}</h1>
                 </div>
-                <Button variant="contained" color="error" onClick={logout}>
-                    Logout
-                </Button>
+                <IconButton
+                    className='text-secondaryColor hover:text-tertiaryColor font-bold'
+                    size='large'
+                    onClick={logout}
+                >
+                    <LogoutIcon />
+                </IconButton>
             </nav>
+            <div className="container mx-auto p-4">
 
-            <TodoList />
-        </div>
+                <TodoList />
+            </div>
+        </>
     );
 };
 

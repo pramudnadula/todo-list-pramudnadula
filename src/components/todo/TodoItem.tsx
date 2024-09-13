@@ -24,7 +24,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
 
     return (
         <div className="flex items-center justify-between p-4 bg-white rounded shadow">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-start space-x-2">
                 <Checkbox
                     checked={todo.completed}
                     onChange={() => toggleTodoCompletion(todo.id)}
@@ -63,7 +63,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
                     )}
                 </div>
             </div>
-            <div className="flex space-x-2">
+            <div className="flex space-y-2 sm:space-y-0 sm:space-x-2 flex-col sm:flex-row">
                 {todo.completed ?
                     null :
                     <IconButton color="primary" onClick={handleEdit}>

@@ -48,7 +48,12 @@ const AddTodoForm: React.FC = () => {
                 error={formik.touched.description && Boolean(formik.errors.description)}
                 helperText={formik.touched.description && formik.errors.description}
             />
-            <Button color="primary" variant="contained" fullWidth type="submit">
+            <Button
+                className='h-12 bg-gradient-to-r from-tertiaryColor to-secondaryColor text-white'
+                variant="contained"
+                fullWidth
+                type="submit"
+            >
                 Add Todo
             </Button>
         </form>

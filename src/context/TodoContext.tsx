@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, ReactNode, useEffect } from
 import { Todo } from '../types';
 import { User } from '../types';
 import { useAuth } from './AuthContext'; // Import useAuth to get the current user
+import { toast } from 'react-toastify';
 
 interface TodoContextType {
     todos: Todo[];
@@ -47,12 +48,14 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
         const updatedTodos = [...todos, todo];
         setTodos(updatedTodos);
         updateUserTodos(updatedTodos);
+        toast.success('Todo added successfully');
     };
 
     const deleteTodo = (id: number) => {
         const updatedTodos = todos.filter((todo) => todo.id !== id);
         setTodos(updatedTodos);
         updateUserTodos(updatedTodos);
+        toast.error('Todo deleted successfully');
     };
 
     const toggleTodoCompletion = (id: number) => {
@@ -67,6 +70,7 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
         );
         setTodos(updatedTodos);
         updateUserTodos(updatedTodos);
+        toast.info(`Todo ${updatedTodos.find((todo) => todo.id === id)?.status}`);
     };
 
     const editTodo = (id: number, updatedTodo: Partial<Todo>) => {
@@ -75,6 +79,7 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
         );
         setTodos(updatedTodos);
         updateUserTodos(updatedTodos);
+        toast.success('Todo updated successfully');
     };
 
     return (
