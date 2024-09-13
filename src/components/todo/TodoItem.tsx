@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Button, Checkbox, IconButton, TextField } from '@mui/material';
 import { Todo } from '../../types';
 import { useTodo } from '../../context/TodoContext';
-
+import EditNoteIcon from '@mui/icons-material/EditNote';
+import SaveIcon from '@mui/icons-material/Save';
+import DeleteIcon from '@mui/icons-material/Delete';
 interface TodoItemProps {
     todo: Todo;
 }
@@ -54,11 +56,10 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
             </div>
             <div className="flex space-x-2">
                 <IconButton color="primary" onClick={handleEdit}>
-                    {isEditing ? 'Save' : 'Edit'}
+                    {isEditing ? <SaveIcon /> : <EditNoteIcon />}
                 </IconButton>
                 <IconButton color="secondary" onClick={() => deleteTodo(todo.id)}>
-                    {/* Replace with DeleteIcon if needed */}
-                    🗑️
+                    <DeleteIcon />
                 </IconButton>
             </div>
         </div>
