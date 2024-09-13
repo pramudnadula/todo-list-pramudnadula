@@ -4,18 +4,25 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { TextField, Button } from '@mui/material';
 import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm: React.FC = () => {
     const { login } = useAuth();
+    const navigate = useNavigate();
 
     const formik = useFormik({
         initialValues: { email: '', password: '' },
         validationSchema: Yup.object({
             email: Yup.string().email('Invalid email address').required('Required'),
-            password: Yup.string().required('Required'),
+            password: Yup.string().min(6, 'Must be at least 6 characters').required('Required'),
         }),
-        onSubmit: (values) => {
-            login(values.email, values.password);
+        onSubmit: async (values) => {
+            try {
+                await login(values.email, values.password);
+                navigate('/');  // Redirect to home page after successful login
+            } catch (error) {
+                console.error('Login error:', error);
+            }
         },
     });
 
@@ -50,4 +57,3 @@ const LoginForm: React.FC = () => {
 };
 
 export default LoginForm;
-

@@ -4,9 +4,11 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { TextField, Button } from '@mui/material';
 import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterForm: React.FC = () => {
     const { register } = useAuth();
+    const navigate = useNavigate();
 
     const formik = useFormik({
         initialValues: { name: '', email: '', password: '' },
@@ -15,10 +17,16 @@ const RegisterForm: React.FC = () => {
             email: Yup.string().email('Invalid email address').required('Required'),
             password: Yup.string().min(6, 'Must be at least 6 characters').required('Required'),
         }),
-        onSubmit: (values) => {
-            register(values.name, values.email, values.password);
+        onSubmit: async (values) => {
+            try {
+                await register(values.name, values.email, values.password);
+                navigate('/login');  // Redirect to login page after registration
+            } catch (error) {
+                console.error('Registration error:', error);
+            }
         },
     });
+
 
     return (
         <form onSubmit={formik.handleSubmit} className="space-y-4">
